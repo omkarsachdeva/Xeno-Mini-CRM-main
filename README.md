@@ -1,148 +1,177 @@
-# Xeno Mini CRM Platform
+🧠 Xeno Mini CRM Platform
+An intelligent and modular Customer Relationship Management (CRM) platform built as part of the Xeno SDE Internship Assignment 2025. This project combines robust data handling, campaign automation, and generative AI capabilities to enhance customer engagement.
 
-A comprehensive CRM platform built for the Xeno SDE Internship Assignment 2025, featuring customer segmentation, campaign delivery, and AI-powered insights.
+Made By: Omkar Sachdeva(RA2211056030003)
 
-![Xeno CRM Dashboard](https://via.placeholder.com/800x400?text=Xeno+CRM+Dashboard)
+✨ Highlights
+📊 Customer segmentation with intuitive rule builders
 
-## 🚀 Features
+💬 Automated and personalized campaign delivery
 
-### 1. Data Ingestion APIs
-- Secure REST APIs for customer and order data
-- Comprehensive validation middleware
-- Documentation with Swagger UI
-- **Pub-sub architecture** using MongoDB for data persistence
+🤖 AI-enhanced features: NLP-driven segmentation, message generation & performance summaries
 
-### 2. Campaign Creation UI
-- Interactive segment builder with flexible rule logic (AND/OR conditions)
-- **Natural language to query conversion** using AI
-- Dynamic audience preview before campaign creation
-- Comprehensive campaign history tracking
+🔐 Google OAuth 2.0 + JWT Authentication
 
-### 3. Campaign Delivery & Logging
-- Automated campaign delivery to segmented audiences
-- Message personalization with customer data
-- Vendor API integration with delivery simulation (90% success, 10% failure)
-- Real-time delivery receipt processing
-- Detailed communication logs
+🧠 Multi-model fallback using Google Generative AI
 
-### 4. Authentication
-- Google OAuth 2.0 integration
-- Secure JWT token management
-- Protected routes for authenticated users only
+⚙️ Core Features
+🔌 1. Scalable Data Ingestion APIs
+RESTful APIs for customer and order intake
 
-### 5. AI Integration
-- Natural language to segment rules conversion
-- AI-driven message suggestions based on campaign objectives
-- Campaign performance summarization
-- Smart rule generation with multimodel fallback strategy
+Input validation with detailed error responses
 
-## 🛠️ Tech Stack
+Swagger UI for seamless API testing and documentation
 
-### Frontend
-- React.js with TypeScript
-- Chakra UI for responsive design
-- React Query Builder for segment creation
-- Chart.js for data visualization
-- Axios for API communication
+Pub/Sub simulation for efficient backend workflows using MongoDB
 
-### Backend
-- Node.js with Express
-- MongoDB for data storage
-- JWT authentication + Google OAuth
-- Express validator for input validation
-- Google's Generative AI for AI features
+🧱 2. Campaign Management System
+Segment builder supporting complex logical queries (AND/OR)
 
-### Development
-- ESLint and Prettier for code quality
-- Nodemon for development server
-- Git for version control
+Dynamic previews for campaign targeting
 
-## 📋 Architecture
+Campaign tracking with delivery status and history logs
 
-The application follows a modular architecture with clean separation of concerns:
+Natural language → filter logic via AI
 
-```
-┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-│   Frontend  │◄────►│   Backend   │◄────►│  Database   │
-│  React.js   │      │  Node.js    │      │  MongoDB    │
-└─────────────┘      └─────────────┘      └─────────────┘
-                           ▲
-                           │
-                     ┌─────┴─────┐
-                     │    AI     │
-                     │ Services  │
-                     └───────────┘
-```
+📩 3. Campaign Delivery & Logging Engine
+Personalized message delivery using customer tokens (e.g., {{name}})
 
-### Key Design Patterns
-- **MVC Pattern** for backend structure
-- **Context API** for state management
-- **Repository Pattern** for data access
-- **Service Layer** for business logic
+Vendor delivery simulation (90% success, 10% failure)
 
-## 🌟 AI Features in Depth
+Real-time feedback processing and communication logs
 
-The application integrates Google's Generative AI (Gemini API) to provide intelligent features that enhance the CRM experience:
+Retry logic for failed message attempts
 
-### 1. Natural Language to Rules Conversion
-Users can describe their target audience in plain English, such as:
-- "Customers who spent more than $1000 and visited less than 3 times"
-- "Inactive users who haven't made a purchase in 90 days"
-- "High-value customers with more than 5 visits"
+🛡️ 4. Secure Authentication System
+Google OAuth 2.0 integrated login
 
-The AI converts these descriptions into precise segmentation rules with appropriate fields, operators, and values, making segment creation more intuitive.
+JWT-based authentication with protected routes
 
-### 2. Smart Message Generation
-The platform generates personalized marketing messages based on:
-- Campaign objectives and descriptions
-- Target audience characteristics
-- Best practices for engagement
+Session validation middleware
 
-Messages are tailored with personalization tokens (e.g., {{name}}) and appropriate calls to action.
+🤖 5. AI-Powered Productivity Tools
+NLP to Rule Builder: Convert user-friendly descriptions to backend queries
 
-### 3. Multi-model Fallback Strategy
-To ensure reliability, the AI service attempts to use different models in order of preference:
-1. `gemini-2.0-flash-lite` (fastest, most efficient)
-2. `gemini-1.5-flash` (good balance of speed and quality)
-3. `gemini-1.5-pro` (highest quality for complex prompts)
+Smart Message Generator: Automatically crafts contextual campaign messages
 
-This ensures consistent service even if certain models have availability issues.
+Performance Summarizer: Offers insights into past campaign performance
 
-### 4. Error Handling & Fallbacks
-The system gracefully handles AI service failures with:
-- Appropriate error messages to users
-- Fallback template responses for critical features
-- Backend retry logic with exponential backoff
+Model fallback ensures uptime using prioritized Gemini models
 
-## 🚦 Getting Started
+🧰 Tech Stack
+🌐 Frontend
+React.js + TypeScript
 
-### Prerequisites
-- Node.js 18+ and npm
-- MongoDB instance (local or Atlas)
-- Google Developer account for OAuth and Gemini API
+Chakra UI for modular UI components
 
-### Installation
+React Query Builder for flexible segmentation
 
-1. Clone the repository
-```bash
+Chart.js for visual data analytics
+
+Axios for REST API calls
+
+🔧 Backend
+Node.js + Express.js
+
+MongoDB (Mongoose ODM)
+
+JWT + OAuth2.0 for auth
+
+Express Validator for sanitizing input
+
+Google Gemini AI API integration
+
+🧱 Architecture Overview
+markdown
+Copy
+Edit
+┌──────────────┐     ┌─────────────┐     ┌──────────────┐
+│  React UI    │◄───►│   Node API  │◄───►│   MongoDB     │
+└──────────────┘     └─────────────┘     └──────────────┘
+                         ▲
+                         │
+                  ┌──────┴──────┐
+                  │     AI      │
+                  │ Integrations│
+                  └─────────────┘
+📦 Patterns Used
+MVC for backend route organization
+
+Context API for global frontend state
+
+Service + Repository Layers for maintainable logic separation
+
+Middleware & Guards for route protection and validation
+
+🤯 AI-Powered Features (via Gemini API)
+🧠 NLP to Rule Conversion
+Plain-text descriptions like:
+
+“Customers who spent over $1000 and visited fewer than 3 times”
+are automatically parsed into structured segmentation logic.
+
+🧾 Message Personalization
+Automatically generates text for campaigns
+
+Adapts tone based on goals (promotional, reactivation, etc.)
+
+Supports tokens like {{first_name}} and dynamic CTAs
+
+🔄 Multi-Model Fallback Strategy
+Prioritized model chain:
+
+gemini-2.0-flash-lite
+
+gemini-1.5-flash
+
+gemini-1.5-pro
+
+Ensures a smooth user experience even with occasional API failures.
+
+🚨 Resilience & Recovery
+Error prompts and alerts for failed AI operations
+
+Backend fallback templates for essential functions
+
+Retry queues with exponential backoff
+
+🚀 Getting Started
+📦 Requirements
+Node.js 18+
+
+MongoDB (Local or Atlas)
+
+Google Developer Credentials (OAuth + Gemini)
+
+🔧 Installation
+Clone the Repo
+
+bash
+Copy
+Edit
 git clone https://github.com/your-username/xeno-crm.git
 cd xeno-crm
-```
+Setup Backend
 
-2. Install backend dependencies
-```bash
+bash
+Copy
+Edit
 cd backend
 npm install
-```
+Setup Frontend
 
-3. Install frontend dependencies
-```bash
+bash
+Copy
+Edit
 cd ../frontend
 npm install
-```
+Configure Environment
 
-4. Create a .env file in the backend directory with:
-```
+Backend: backend/.env
+
+ini
+Copy
+Edit
 MONGODB_URI=mongodb://localhost:27017/xeno-crm
 JWT_SECRET=your-jwt-secret
 GOOGLE_CLIENT_ID=your-google-client-id
@@ -150,71 +179,79 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
 CLIENT_URL=http://localhost:3000
 GEMINI_API_KEY=your-gemini-api-key
-```
+Frontend: frontend/.env
 
-5. Create a .env file in the frontend directory with:
-```
+ini
+Copy
+Edit
 REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_GOOGLE_CLIENT_ID=your-google-client-id
-```
+Run the App
 
-### Running the application
-
-1. Start the backend server
-```bash
+bash
+Copy
+Edit
+# Backend
 cd backend
 npm run dev
-```
 
-2. In a new terminal, start the frontend application
-```bash
-cd frontend
+# Frontend
+cd ../frontend
 npm start
-```
+Go to http://localhost:3000 to use the app.
 
-3. Visit http://localhost:3000 in your browser
+📚 API Reference
+Swagger UI: http://localhost:5000/api-docs
 
-## 📝 API Documentation
+✨ Key Routes
+POST /api/customers → Add a customer
 
-The API documentation is available at `http://localhost:5000/api-docs` when running the server locally.
+POST /api/orders → Submit an order
 
-### Key Endpoints:
+POST /api/campaigns → Create a campaign
 
-- `POST /api/customers` - Create a new customer
-- `POST /api/orders` - Create a new order
-- `GET /api/campaigns` - List all campaigns
-- `POST /api/campaigns` - Create a new campaign
-- `POST /api/campaigns/:id/activate` - Activate a campaign
-- `POST /api/ai/convert-rules` - Convert natural language to rules
-- `POST /api/ai/generate-message` - Generate promotional message
+POST /api/campaigns/:id/activate → Activate a campaign
 
-## 🔒 Security
+POST /api/ai/convert-rules → NLP to segment rules
 
-- Google OAuth for secure authentication
-- JWT tokens with expiration
-- Input validation on all endpoints
-- Protected routes for authenticated users
+POST /api/ai/generate-message → Generate message
 
-## 🧪 Known Limitations
+🔐 Security
+Enforced login via Google
 
-- The vendor API is simulated with a 90% success rate
-- For demonstration purposes, campaign delivery is synchronous
-- Limited to text-based messaging (no image attachments)
+JWT-protected routes
 
-## 📱 Future Enhancements
+Input sanitization on all endpoints
 
-- Mobile application
-- Advanced analytics dashboard
-- A/B testing for campaigns
-- Multi-language support
-- Email template designer
+Secure token lifecycle management
 
-## 📄 License
+⚠️ Limitations
+Vendor delivery is mocked (90% pass, 10% fail)
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Campaigns are delivered synchronously (for demo)
 
-## 🙏 Acknowledgments
+Only supports text campaigns (no rich media)
 
-- React Query Builder for the segment builder UI
-- Chakra UI for the component library
-- Google Generative AI for AI capabilities
+🌈 Future Roadmap
+Mobile-friendly interface (React Native)
+
+Real-time analytics dashboard
+
+A/B testing for performance comparison
+
+Support for multilingual campaigns
+
+Drag-and-drop campaign designer
+
+📜 License
+Licensed under the MIT License. See the LICENSE file for details.
+
+🙌 Special Thanks
+React Query Builder
+
+Chakra UI
+
+Google Generative AI
+
+Swagger UI
+
