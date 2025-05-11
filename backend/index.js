@@ -21,13 +21,11 @@ const errorHandler = require('./middleware/error.middleware');
 
 // Initialize Express app
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // Configure passport
 require('./config/passport');
 
 // Middleware
-// Updated CORS configuration to explicitly allow requests from frontend
 app.use(cors({
     origin: process.env.CLIENT_URL || 'http://localhost:3000',
     credentials: true,
@@ -58,20 +56,21 @@ app.get('/', (req, res) => {
     });
 });
 
-// Error handling middleware - must be after all other routes
+// Error handling middleware
 app.use(errorHandler);
 
-// Connect to MongoDB
-mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(() => {
-        console.log('Connected to MongoDB');
-        // Start server
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-            console.log(`Swagger documentation available at http://localhost:${PORT}/api-docs`);
-        });
-    })
-    .catch((error) => {
-        console.error('MongoDB connection error:', error);
-    });
+// MongoDB connection should be handled separately for Vercel cold starts
+let isConnected = false;
+
+const connectToDB = async () => {
+    if (isConnected) return;
+    await mongoose.connect(process.env.MONGODB_URI);
+    isConnected = true;
+    console.log('Connected to MongoDB');
+};
+
+// ✅ Export for Vercel
+module.exports = async (req, res) => {
+    await connectToDB();
+    return app(req, res);
+};
