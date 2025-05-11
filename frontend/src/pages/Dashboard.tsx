@@ -43,8 +43,8 @@ const Dashboard: React.FC = () => {
   
   // Color schemes
   const cardBg = useColorModeValue('white', 'gray.700');
-  const borderColor = useColorModeValue('gray.200', 'gray.600');
-  const textColor = useColorModeValue('gray.700', 'gray.200');
+  const borderColor = useColorModeValue('gray.500', 'gray.600');
+  const textColor = useColorModeValue('black.700', 'gray.200');
   const subtleText = useColorModeValue('gray.600', 'gray.400');
   const successColor = useColorModeValue('teal.500', 'teal.300');
   const warningColor = useColorModeValue('orange.500', 'orange.300');

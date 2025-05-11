@@ -84,7 +84,7 @@ const CreateCampaign: React.FC<CreateCampaignProps> = ({ onCancel }) => {
   const borderColor = useColorModeValue('gray.200', 'gray.600');
   const textColor = useColorModeValue('gray.700', 'gray.200');
   const subtleText = useColorModeValue('gray.600', 'gray.400');
-  const highlightBg = useColorModeValue('teal.50', 'teal.900');
+  const highlightBg = useColorModeValue('blue60', 'blue70');
   const highlightBorder = useColorModeValue('teal.200', 'teal.700');
   const tabSelectedBg = useColorModeValue('white', 'gray.700');
 

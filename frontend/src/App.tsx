@@ -19,7 +19,7 @@ const AuthCallbackPage = React.lazy(() => import('./pages/AuthCallback'));
 const LoadingFallback = ({ componentName = "component" }) => (
   <Center height="100vh">
     <Box textAlign="center">
-      <Spinner size="xl" color="teal.500" mb={4} />
+      <Spinner size="xl" color="blue.500" mb={4} />
       <Text>Loading {componentName}...</Text>
     </Box>
   </Center>

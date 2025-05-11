@@ -36,8 +36,8 @@ const Navigation: React.FC = () => {
 
   // Colors
   const sidebarBg = useColorModeValue('white', 'gray.800');
-  const activeBg = useColorModeValue('teal.50', 'teal.900');
-  const activeColor = useColorModeValue('teal.600', 'teal.200');
+  const activeBg = useColorModeValue('indigo60', 'indigo70');
+  const activeColor = useColorModeValue('cyan50', 'cyan60');
   const hoverBg = useColorModeValue('gray.100', 'gray.700');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const topNavBg = useColorModeValue('white', 'gray.800');
@@ -241,7 +241,7 @@ const Navigation: React.FC = () => {
                 borderRadius="0"
                 role="group"
                 cursor="pointer"
-                bg="teal.500"
+                bg="teal.50"
                 color="white"
                 fontWeight="semibold"
                 _hover={{
